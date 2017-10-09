@@ -3,7 +3,6 @@ from eve.auth import BasicAuth
 
 app = Eve()
 
-
 class Authenticate(BasicAuth):
     def check_auth(self, username, password, allowed_roles, resource,
                    method):
