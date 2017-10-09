@@ -19,6 +19,10 @@ class Person(Model):
         database = db  # модель будет использовать базу данных 'people.db'
 
 if __name__ == '__main__':
-    Person.create_table()
-    uncle_bob = Person(name='Bob', birthday=date(1960, 1, 15), is_relative=True)
-    uncle_bob.save()
+    if not Person.table_exists(): Person.create_table()
+    # uncle_bob = Person(name='Bob', birthday=date(1960, 1, 15), is_relative=True)
+    # uncle_bob.save()
+    # art = Person(name='Art', birthday=date(1996, 11, 12), is_relative=True)
+    # art.save()
+    for person in Person.select():
+        print(person.name, person.is_relative)
